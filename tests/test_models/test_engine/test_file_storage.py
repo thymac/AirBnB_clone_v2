@@ -113,13 +113,14 @@ class test_fileStorage(unittest.TestCase):
 
     def test_create_state(self):
         """Test create State command in console"""
-        db = MySQLdb.connect(host='localhost', user='hbnb_test', passwd='hbnb_test_pwd', db='hbnb_test_db')
+        db = MySQLdb.connect(host='localhost', user='hbnb_test',
+                             passwd='hbnb_test_pwd', db='hbnb_test_db')
 
         cursor = db.cursor()
         cursor.execute('SELECT COUNT(*) FROM states')
         initial_count = cursor.fetchone()[0]
-    
-        create State name="California"
+
+        create State name = "California"
 
         cursor.execute('SELECT COUNT(*) FROM states')
         updated_count = cursor.fetchone()[0]
@@ -128,14 +129,15 @@ class test_fileStorage(unittest.TestCase):
 
     def test_create_place(self):
         """Test create Place command in console"""
-        db = MySQLdb.connect(host='localhost', user='hbnb_test', passwd='hbnb_test_pwd', db='hbnb_test_db')
+        db = MySQLdb.connect(host='localhost', user='hbnb_test',
+                             passwd='hbnb_test_pwd', db='hbnb_test_db')
 
         cursor = db.cursor()
         cursor.execute('SELECT COUNT(*) FROM places')
         initial_count = cursor.fetchone()[0]
 
-        create Place city_id="0001" user_id="0001" name="My_little_house"
-        
+        create Place city_id = "0001" user_id = "0001" name = "My_little_house"
+
         cursor.execute('SELECT COUNT(*) FROM places')
         updated_count = cursor.fetchone()[0]
 
@@ -143,13 +145,14 @@ class test_fileStorage(unittest.TestCase):
 
     def test_create_user(self):
         """Test create User command in console"""
-        db = MySQLdb.connect(host='localhost', user='hbnb_test', passwd='hbnb_test_pwd', db='hbnb_test_db')
+        db = MySQLdb.connect(host='localhost', user='hbnb_test',
+                             passwd='hbnb_test_pwd', db='hbnb_test_db')
 
         cursor = db.cursor()
         cursor.execute('SELECT COUNT(*) FROM users')
         initial_count = cursor.fetchone()[0]
 
-        create User email="test@example.com" password="12345"
+        create User email = "test@example.com" password = "12345"
 
         cursor.execute('SELECT COUNT(*) FROM users')
         updated_count = cursor.fetchone()[0]

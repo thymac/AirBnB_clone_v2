@@ -7,6 +7,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
+
 class BaseModel(Base):
     """A base class for all hbnb models"""
     __tablename__ = ''  # Replace with the appropriate table name

@@ -5,6 +5,7 @@ from sqlalchemy import Column, String, Table, ForeignKey
 from sqlalchemy.orm import relationship
 from models.place import place_amenity
 
+
 class Amenity(BaseModel):
     """ Amenity class to store amenity information """
     __tablename__ = 'amenities'

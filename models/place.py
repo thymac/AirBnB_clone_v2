@@ -39,8 +39,10 @@ class Place(BaseModel):
     amenity_ids = []
 
     if getenv("HBNB_TYPE_STORAGE") == "db":
-        reviews = relationship("Review", backref="place", cascade="all, delete")
-        amenities = relationship("Amenity", secondary=place_amenity, viewonly=False)
+        reviews = relationship("Review", backref="place",
+                               cascade="all, delete")
+        amenities = relationship(
+            "Amenity", secondary=place_amenity, viewonly=False)
     else:
         @property
         def reviews(self):
@@ -65,4 +67,3 @@ class Place(BaseModel):
         def amenities(self, obj):
             if isinstance(obj, Amenity):
                 self.amenity_ids.append(obj.id)
-
